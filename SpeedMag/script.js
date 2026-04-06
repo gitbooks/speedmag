@@ -352,4 +352,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== SHOWCASE LIGHTBOX =====
+    const showcaseScreens = [
+        { id: 'dashboard', title: 'Your finances at a glance', desc: 'Income, expenses, net income, monthly cash flow chart, and recent transactions — all in one view.' },
+        { id: 'transactions', title: 'Find anything instantly', desc: 'Search, filter by date or category, and re-categorize transactions in bulk.' },
+        { id: 'reports', title: 'Tax-ready in one click', desc: 'Profit & Loss, Balance Sheet, Cash Flow, and Tax Summary. Export to PDF.' },
+        { id: 'import', title: 'Drop it. Done.', desc: 'Drag a bank PDF or CSV onto SpeedMag. Transactions are parsed and categorized automatically.' },
+    ];
+
+    const lightbox = document.getElementById('showcaseLightbox');
+    if (lightbox) {
+        const lbImg = document.getElementById('lightboxImg');
+        const lbTitle = document.getElementById('lightboxTitle');
+        const lbDesc = document.getElementById('lightboxDesc');
+        let currentIdx = 0;
+
+        function openLightbox(screenId) {
+            const idx = showcaseScreens.findIndex(s => s.id === screenId);
+            if (idx === -1) return;
+            currentIdx = idx;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            const screen = showcaseScreens[currentIdx];
+            lbImg.src = `screenshots/${screen.id}.png`;
+            lbImg.alt = `SpeedMag ${screen.title}`;
+            lbTitle.textContent = screen.title;
+            lbDesc.textContent = screen.desc;
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Card clicks
+        document.querySelectorAll('.showcase-card').forEach(card => {
+            card.addEventListener('click', () => openLightbox(card.dataset.screen));
+        });
+
+        // Close
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Nav
+        lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIdx = (currentIdx - 1 + showcaseScreens.length) % showcaseScreens.length;
+            updateLightbox();
+        });
+        lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIdx = (currentIdx + 1) % showcaseScreens.length;
+            updateLightbox();
+        });
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + showcaseScreens.length) % showcaseScreens.length; updateLightbox(); }
+            if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % showcaseScreens.length; updateLightbox(); }
+        });
+    }
+
 });

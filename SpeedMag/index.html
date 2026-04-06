@@ -203,35 +203,127 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-badge animate-in">See It In Action</span>
-                <h2 class="section-title animate-in">Built for your Mac.<br><span class="gradient-text">Beautiful by default.</span></h2>
-                <p class="section-subtitle animate-in">A native macOS experience that feels right at home on your desktop.</p>
+                <h2 class="section-title animate-in">Everything you need.<br><span class="gradient-text">Nothing you don't.</span></h2>
+                <p class="section-subtitle animate-in">Four powerful views. One seamless workflow. Click any screen to explore.</p>
             </div>
-            <div class="showcase-tabs animate-in">
-                <button class="showcase-tab active" data-tab="dashboard">Dashboard</button>
-                <button class="showcase-tab" data-tab="transactions">Transactions</button>
-                <button class="showcase-tab" data-tab="reports">Reports</button>
-                <button class="showcase-tab" data-tab="import">Import</button>
-            </div>
-            <div class="showcase-window animate-in">
-                <div class="window-chrome">
-                    <div class="window-dot red"></div>
-                    <div class="window-dot yellow"></div>
-                    <div class="window-dot green"></div>
-                    <span class="window-title">SpeedMag</span>
+
+            <div class="showcase-grid">
+                <!-- Dashboard — Featured (large) -->
+                <div class="showcase-card showcase-card--featured animate-in" data-screen="dashboard">
+                    <div class="showcase-card__image">
+                        <div class="showcase-card__window-dots"><span></span><span></span><span></span></div>
+                        <img src="screenshots/dashboard.png" alt="SpeedMag Dashboard" loading="lazy">
+                        <div class="showcase-card__overlay">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Click to expand</span>
+                        </div>
+                    </div>
+                    <div class="showcase-card__info">
+                        <div class="showcase-card__label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Dashboard
+                        </div>
+                        <h3 class="showcase-card__title">Your finances at a glance</h3>
+                        <p class="showcase-card__desc">Income, expenses, and net income cards. Monthly cash flow chart. Recent transactions feed. Everything updates the moment you import a statement.</p>
+                        <div class="showcase-card__tags">
+                            <span class="showcase-tag">Real-time totals</span>
+                            <span class="showcase-tag">Cash flow chart</span>
+                            <span class="showcase-tag">Quick overview</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="window-body">
-                    <div class="showcase-panel active" id="panel-dashboard">
-                        <img src="screenshots/dashboard.png" alt="SpeedMag Dashboard — Financial overview with income, expenses, net income, monthly cash flow chart, and recent transactions" loading="lazy">
+
+                <!-- Transactions -->
+                <div class="showcase-card animate-in" data-screen="transactions">
+                    <div class="showcase-card__image">
+                        <div class="showcase-card__window-dots"><span></span><span></span><span></span></div>
+                        <img src="screenshots/transactions.png" alt="SpeedMag Transactions" loading="lazy">
+                        <div class="showcase-card__overlay">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Click to expand</span>
+                        </div>
                     </div>
-                    <div class="showcase-panel" id="panel-transactions">
-                        <img src="screenshots/transactions.png" alt="SpeedMag Transactions — Browse, filter, search, and categorize transactions with bulk actions" loading="lazy">
+                    <div class="showcase-card__info">
+                        <div class="showcase-card__label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            Transactions
+                        </div>
+                        <h3 class="showcase-card__title">Find anything instantly</h3>
+                        <p class="showcase-card__desc">Search, filter by date or category, and re-categorize in bulk. Every transaction from every statement, organized.</p>
+                        <div class="showcase-card__tags">
+                            <span class="showcase-tag">Bulk actions</span>
+                            <span class="showcase-tag">Smart filters</span>
+                        </div>
                     </div>
-                    <div class="showcase-panel" id="panel-reports">
-                        <img src="screenshots/reports.png" alt="SpeedMag Reports — Profit and Loss statement with monthly breakdown and charts" loading="lazy">
+                </div>
+
+                <!-- Reports -->
+                <div class="showcase-card animate-in" data-screen="reports">
+                    <div class="showcase-card__image">
+                        <div class="showcase-card__window-dots"><span></span><span></span><span></span></div>
+                        <img src="screenshots/reports.png" alt="SpeedMag Reports" loading="lazy">
+                        <div class="showcase-card__overlay">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Click to expand</span>
+                        </div>
                     </div>
-                    <div class="showcase-panel" id="panel-import">
-                        <img src="screenshots/import.png" alt="SpeedMag Import — Drag and drop bank statements with automatic parsing and categorization" loading="lazy">
+                    <div class="showcase-card__info">
+                        <div class="showcase-card__label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Reports
+                        </div>
+                        <h3 class="showcase-card__title">Tax-ready in one click</h3>
+                        <p class="showcase-card__desc">Profit &amp; Loss, Balance Sheet, Cash Flow, and Tax Summary. Export to PDF with your business name and logo.</p>
+                        <div class="showcase-card__tags">
+                            <span class="showcase-tag">P&amp;L</span>
+                            <span class="showcase-tag">PDF export</span>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Import -->
+                <div class="showcase-card animate-in" data-screen="import">
+                    <div class="showcase-card__image">
+                        <div class="showcase-card__window-dots"><span></span><span></span><span></span></div>
+                        <img src="screenshots/import.png" alt="SpeedMag Import" loading="lazy">
+                        <div class="showcase-card__overlay">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Click to expand</span>
+                        </div>
+                    </div>
+                    <div class="showcase-card__info">
+                        <div class="showcase-card__label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Import
+                        </div>
+                        <h3 class="showcase-card__title">Drop it. Done.</h3>
+                        <p class="showcase-card__desc">Drag a bank PDF or CSV onto SpeedMag. Transactions are parsed, categorized, and added to your books automatically.</p>
+                        <div class="showcase-card__tags">
+                            <span class="showcase-tag">PDF + CSV</span>
+                            <span class="showcase-tag">Auto-categorize</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="showcase-lightbox" id="showcaseLightbox">
+            <button class="lightbox-close" aria-label="Close">&times;</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="lightbox-nav lightbox-next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lightbox-content">
+                <div class="lightbox-window">
+                    <div class="showcase-card__window-dots"><span></span><span></span><span></span></div>
+                    <img id="lightboxImg" src="" alt="">
+                </div>
+                <div class="lightbox-caption">
+                    <h3 id="lightboxTitle"></h3>
+                    <p id="lightboxDesc"></p>
                 </div>
             </div>
         </div>
