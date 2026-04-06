@@ -25,4 +25,9 @@ contextBridge.exposeInMainWorld('electron', {
   // Export
   exportCSV: (transactions)       => ipcRenderer.invoke('export:csv', transactions),
   exportPDF: (opts)               => ipcRenderer.invoke('export:pdf', opts),
+
+  // License
+  checkLicense:      ()           => ipcRenderer.invoke('license:check'),
+  activateLicense:   (key)        => ipcRenderer.invoke('license:activate', key),
+  deactivateLicense: ()           => ipcRenderer.invoke('license:deactivate'),
 });

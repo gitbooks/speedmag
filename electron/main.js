@@ -5,6 +5,75 @@ const fs = require('fs');
 
 const isDev = process.argv.includes('--dev');
 
+// ── License management ───────────────────────────────────────────────────────
+const getLicensePath = () => path.join(app.getPath('userData'), 'license.json');
+
+function loadLicense() {
+  const p = getLicensePath();
+  if (!fs.existsSync(p)) return null;
+  try { return JSON.parse(fs.readFileSync(p, 'utf-8')); } catch { return null; }
+}
+
+function saveLicense(data) {
+  fs.writeFileSync(getLicensePath(), JSON.stringify(data, null, 2), 'utf-8');
+}
+
+function clearLicense() {
+  const p = getLicensePath();
+  if (fs.existsSync(p)) fs.unlinkSync(p);
+}
+
+async function validateLicenseOnline(licenseKey, instanceId) {
+  const https = require('https');
+  const body = JSON.stringify({
+    license_key: licenseKey,
+    instance_id: instanceId || undefined,
+  });
+  return new Promise((resolve) => {
+    const req = https.request({
+      hostname: 'api.lemonsqueezy.com',
+      path: '/v1/licenses/validate',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    }, (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); } catch { resolve({ valid: false, error: 'Parse error' }); }
+      });
+    });
+    req.on('error', () => resolve({ valid: false, error: 'Network error' }));
+    req.write(body);
+    req.end();
+  });
+}
+
+async function activateLicense(licenseKey) {
+  const https = require('https');
+  const os = require('os');
+  const body = JSON.stringify({
+    license_key: licenseKey,
+    instance_name: `${os.userInfo().username}@${os.hostname()}`,
+  });
+  return new Promise((resolve) => {
+    const req = https.request({
+      hostname: 'api.lemonsqueezy.com',
+      path: '/v1/licenses/activate',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    }, (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); } catch { resolve({ activated: false, error: 'Parse error' }); }
+      });
+    });
+    req.on('error', () => resolve({ activated: false, error: 'Network error' }));
+    req.write(body);
+    req.end();
+  });
+}
+
 // ── Profile & data paths ──────────────────────────────────────────────────────
 const getProfilesPath   = () => path.join(app.getPath('userData'), 'profiles.json');
 const getProfileDataPath = (id) => path.join(app.getPath('userData'), `profile-${id}.json`);
@@ -295,6 +364,80 @@ ipcMain.handle('export:csv', async (_event, transactions) => {
   ]);
   fs.writeFileSync(filePath, [headers.join(','), ...rows.map((r) => r.join(','))].join('\n'), 'utf-8');
   return true;
+});
+
+// ── IPC: License ─────────────────────────────────────────────────────────────
+ipcMain.handle('license:check', async () => {
+  const license = loadLicense();
+  if (!license) return { status: 'none' };
+
+  // If we validated within the last 3 days, trust the cached result
+  const daysSinceCheck = (Date.now() - (license.lastChecked || 0)) / (1000 * 60 * 60 * 24);
+  if (daysSinceCheck < 3 && license.valid) {
+    return { status: 'active', license };
+  }
+
+  // Re-validate online
+  const result = await validateLicenseOnline(license.key, license.instanceId);
+  if (result.valid) {
+    license.valid = true;
+    license.lastChecked = Date.now();
+    saveLicense(license);
+    return { status: 'active', license };
+  }
+
+  // If network error, give grace period (7 days)
+  if (result.error === 'Network error' && daysSinceCheck < 7 && license.valid) {
+    return { status: 'active', license, offline: true };
+  }
+
+  // License expired or invalid
+  license.valid = false;
+  saveLicense(license);
+  return { status: 'expired', license };
+});
+
+ipcMain.handle('license:activate', async (_event, licenseKey) => {
+  const result = await activateLicense(licenseKey.trim());
+
+  if (result.activated) {
+    const license = {
+      key: licenseKey.trim(),
+      instanceId: result.instance?.id,
+      customerEmail: result.meta?.customer_email || '',
+      productName: result.meta?.product_name || 'SpeedMag',
+      valid: true,
+      activatedAt: Date.now(),
+      lastChecked: Date.now(),
+    };
+    saveLicense(license);
+    return { success: true, license };
+  }
+
+  // If already activated, try validating instead
+  if (result.error === 'This license key has already been activated.') {
+    const validateResult = await validateLicenseOnline(licenseKey.trim());
+    if (validateResult.valid) {
+      const license = {
+        key: licenseKey.trim(),
+        instanceId: validateResult.instance?.id || '',
+        customerEmail: validateResult.meta?.customer_email || '',
+        productName: validateResult.meta?.product_name || 'SpeedMag',
+        valid: true,
+        activatedAt: Date.now(),
+        lastChecked: Date.now(),
+      };
+      saveLicense(license);
+      return { success: true, license };
+    }
+  }
+
+  return { success: false, error: result.error || 'Invalid license key. Please check and try again.' };
+});
+
+ipcMain.handle('license:deactivate', async () => {
+  clearLicense();
+  return { success: true };
 });
 
 // ── IPC: Export P&L PDF ───────────────────────────────────────────────────────
