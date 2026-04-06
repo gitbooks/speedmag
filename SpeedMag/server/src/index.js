@@ -1,5 +1,6 @@
 require('dotenv').config({ path: __dirname + '/../.env' });
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
@@ -46,6 +47,14 @@ app.use('/api/ideas', (req, res, next) => {
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
+// Serve static website files (index.html, roadmap.html, etc.)
+app.use(express.static(path.join(__dirname, '..', '..')));
+
+// Fallback: serve index.html for any non-API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`SpeedMag Roadmap API running on port ${PORT}`);
+  console.log(`SpeedMag running on port ${PORT}`);
 });
