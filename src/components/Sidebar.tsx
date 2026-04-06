@@ -58,7 +58,7 @@ export default function Sidebar({ activeView, onNavigate, transactionCount, acti
           </div>
           <div>
             <p className="text-white text-sm font-semibold leading-tight">SpeedMag</p>
-            <p className="text-white/40 text-[10px] leading-tight">Financial Planner</p>
+            <p className="text-white/40 text-[10px] leading-tight">Bookkeeping Platform</p>
           </div>
         </div>
       </div>

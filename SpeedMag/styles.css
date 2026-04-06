@@ -798,6 +798,32 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
+.pricing-single {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.pricing-single .pricing-card.featured {
+    transform: none;
+}
+
+.pricing-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 32px;
+    margin-bottom: 32px;
+}
+
+.pricing-features-grid .pricing-features {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .pricing-features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .pricing-card {
     background: var(--bg-card);
     border: 1px solid var(--border);

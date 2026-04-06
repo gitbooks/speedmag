@@ -226,7 +226,7 @@ export default function Reports({ data, activeProfile, selectedYear, onUpdateBal
     <div class="header-left">
       ${logoDataUrl ? `<img class="header-logo" src="${logoDataUrl}" alt="SpeedMag" />` : ''}
       <div>
-        <div class="sub">SpeedMag Financial Planner</div>
+        <div class="sub">SpeedMag Bookkeeping</div>
         <h1>Profit &amp; Loss Statement</h1>
         <div class="sub">${businessName} &nbsp;·&nbsp; ${dateRange}</div>
       </div>
@@ -289,7 +289,7 @@ export default function Reports({ data, activeProfile, selectedYear, onUpdateBal
     Consult a qualified tax professional or CPA for accurate financial and tax advice.
   </div>
 
-  <div class="footer">SpeedMag Financial Planner &nbsp;·&nbsp; ${businessName} &nbsp;·&nbsp; Confidential</div>
+  <div class="footer">SpeedMag Bookkeeping &nbsp;·&nbsp; ${businessName} &nbsp;·&nbsp; Confidential</div>
 </body></html>`;
 
       const slug = businessName.replace(/\s+/g, '-').toLowerCase();

@@ -1,7 +1,7 @@
 {
   "name": "speedmag",
   "version": "1.0.0",
-  "description": "SpeedMag — QuickBooks-style financial planner",
+  "description": "SpeedMag — Modern bookkeeping platform for Mac",
   "main": "electron/main.js",
   "scripts": {
     "dev": "concurrently -k -n VITE,ELECTRON -c cyan,yellow \"vite\" \"wait-on http://localhost:5173 && electron . --dev\"",

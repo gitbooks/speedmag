@@ -242,7 +242,7 @@ export default function BalanceSheet({ transactions, entries, retainedEarnings, 
     <div class="header-left">
       ${logoDataUrl ? `<img class="header-logo" src="${logoDataUrl}" alt="SpeedMag" />` : ''}
       <div>
-        <div class="sub">SpeedMag Financial Planner</div>
+        <div class="sub">SpeedMag Bookkeeping</div>
         <h1>Balance Sheet</h1>
         <div class="sub">${businessName} &nbsp;·&nbsp; ${yearLabel}${asOfDate ? ` &nbsp;·&nbsp; As of ${asOfDate}` : ''}</div>
       </div>
@@ -281,7 +281,7 @@ export default function BalanceSheet({ transactions, entries, retainedEarnings, 
       : `⚠ Off by ${fmtN(Math.abs(diff))} — Review manually entered values or add missing entries`}
   </div>
 
-  <div class="footer">SpeedMag Financial Planner &nbsp;·&nbsp; ${businessName} &nbsp;·&nbsp; Confidential</div>
+  <div class="footer">SpeedMag Bookkeeping &nbsp;·&nbsp; ${businessName} &nbsp;·&nbsp; Confidential</div>
 </body></html>`;
 
       const slug = businessName.replace(/\s+/g, '-').toLowerCase();

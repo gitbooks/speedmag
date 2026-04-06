@@ -237,6 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const duration = 2000;
         const start = performance.now();
 
+        // Skip animation for non-numeric targets (like infinity)
+        if (isNaN(target) || target === 0 && isRaw) {
+            el.textContent = el.innerHTML;
+            return;
+        }
+
         function tick(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
