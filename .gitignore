@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# Environment / secrets
+.env
+.env.local
+.env.production
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Electron build cache
+*.dmg
+*.zip
+*.blockmap
+
+# Bank statements (sensitive financial data!)
+Statements/
+
+# Postgres local data
+Postgres/
+
+# Logs
+*.log
+npm-debug.log*

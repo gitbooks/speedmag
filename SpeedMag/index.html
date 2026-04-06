@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedMag — Bookkeeping for Mac, Without the Monthly Bill</title>
+    <meta name="description" content="SpeedMag is a powerful macOS bookkeeping app with bank imports, auto-categorization, P&L reports, inventory tracking — all for a one-time price of $4.99. No subscriptions. Free updates forever.">
+    <meta property="og:title" content="SpeedMag — Bookkeeping for Mac, Without the Monthly Bill">
+    <meta property="og:description" content="Import bank statements. Auto-categorize transactions. Generate P&L reports. Track inventory. All local on your Mac — $4.99 one-time.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://speedmag.ai">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="SpeedMag" class="logo-img">
+                <span class="logo-text">Speed<span class="logo-accent">Mag</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#download" class="btn btn-nav magnetic-btn">Download Free</a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="container hero-content">
+            <div class="hero-badge animate-in">
+                <span class="badge-dot"></span>
+                Native macOS app &mdash; v1.0 now available
+            </div>
+            <h1 class="hero-title animate-in">
+                <span class="line">Bookkeeping,</span>
+                <span class="line gradient-text">Without the Bill.</span>
+            </h1>
+            <p class="hero-subtitle animate-in">
+                SpeedMag is a QuickBooks-style financial planner for Mac.
+                Import bank statements, auto-categorize transactions, generate reports &mdash;
+                all stored locally on your machine. One price. Free updates forever.
+            </p>
+            <div class="hero-actions animate-in">
+                <a href="#download" class="btn btn-primary btn-lg magnetic-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download for Mac — Free
+                </a>
+                <a href="#features" class="btn btn-ghost btn-lg">
+                    See All Features
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats animate-in">
+                <div class="stat">
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-label">Bank Formats</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Report Types</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="4" data-suffix=".99" data-prefix="$" data-raw="true">$0</span>
+                    <span class="stat-label">One-Time. Forever.</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORTED BANKS BAR ===== -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="social-proof-label">Import statements from</p>
+            <div class="logo-ticker">
+                <div class="logo-ticker-track">
+                    <span class="company-logo">Navy Federal</span>
+                    <span class="company-logo">Chase</span>
+                    <span class="company-logo">Bank of America</span>
+                    <span class="company-logo">Capital One</span>
+                    <span class="company-logo">Wells Fargo</span>
+                    <span class="company-logo">Citi</span>
+                    <span class="company-logo">+ Any CSV</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="company-logo">Navy Federal</span>
+                    <span class="company-logo">Chase</span>
+                    <span class="company-logo">Bank of America</span>
+                    <span class="company-logo">Capital One</span>
+                    <span class="company-logo">Wells Fargo</span>
+                    <span class="company-logo">Citi</span>
+                    <span class="company-logo">+ Any CSV</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-in">Features</span>
+                <h2 class="section-title animate-in">Everything QuickBooks does.<br><span class="gradient-text">Without the price tag.</span></h2>
+                <p class="section-subtitle animate-in">Professional bookkeeping tools built for freelancers, sole proprietors, and small business owners.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1: Import -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Smart Statement Import</h3>
+                    <p>Drag-and-drop PDF or CSV bank statements. Supports Navy Federal, Chase, Bank of America, Capital One, Wells Fargo, Citi, and any generic CSV format.</p>
+                </div>
+                <!-- Feature 2: Auto-Categorize -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 7h6M4 12h8M4 17h4M16 4l4 4-4 4M20 8H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Auto-Categorization</h3>
+                    <p>Transactions are intelligently sorted into Business, Personal, or Transfer categories on import. Bulk-categorize or fine-tune with 16+ built-in business subcategories.</p>
+                </div>
+                <!-- Feature 3: Reports -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Professional Reports</h3>
+                    <p>Generate Profit &amp; Loss statements, Balance Sheets, Cash Flow reports, Expense Breakdowns, and Tax Summaries. Export any report to PDF with one click.</p>
+                </div>
+                <!-- Feature 4: Inventory -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Inventory Tracking</h3>
+                    <p>Track stock levels, SKUs, sale prices, and reorder points. Record purchases, sales, and adjustments. COGS automatically flows into your financial reports.</p>
+                </div>
+                <!-- Feature 5: Multi-Business -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Multi-Business Profiles</h3>
+                    <p>Run a side hustle and a main business? Create color-coded profiles with completely separate books, statements, categories, and reports for each one.</p>
+                </div>
+                <!-- Feature 6: Privacy -->
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>100% Local &amp; Private</h3>
+                    <p>Your financial data never leaves your Mac. No cloud. No accounts. No servers. Everything is stored in your local application data. You own your books, period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APP SHOWCASE ===== -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-in">See It In Action</span>
+                <h2 class="section-title animate-in">Built for your Mac.<br><span class="gradient-text">Beautiful by default.</span></h2>
+                <p class="section-subtitle animate-in">A native macOS experience that feels right at home on your desktop.</p>
+            </div>
+            <div class="showcase-tabs animate-in">
+                <button class="showcase-tab active" data-tab="dashboard">Dashboard</button>
+                <button class="showcase-tab" data-tab="transactions">Transactions</button>
+                <button class="showcase-tab" data-tab="reports">Reports</button>
+                <button class="showcase-tab" data-tab="import">Import</button>
+            </div>
+            <div class="showcase-window animate-in">
+                <div class="window-chrome">
+                    <div class="window-dot red"></div>
+                    <div class="window-dot yellow"></div>
+                    <div class="window-dot green"></div>
+                    <span class="window-title">SpeedMag</span>
+                </div>
+                <div class="window-body">
+                    <div class="showcase-panel active" id="panel-dashboard">
+                        <img src="screenshots/dashboard.png" alt="SpeedMag Dashboard — Financial overview with income, expenses, net income, monthly cash flow chart, and recent transactions" loading="lazy">
+                        <div class="screenshot-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Dashboard</span>
+                            <span class="placeholder-sub">Financial overview, charts, and recent transactions</span>
+                        </div>
+                    </div>
+                    <div class="showcase-panel" id="panel-transactions">
+                        <img src="screenshots/transactions.png" alt="SpeedMag Transactions — Browse, filter, search, and categorize transactions with bulk actions" loading="lazy">
+                        <div class="screenshot-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <span>Transactions</span>
+                            <span class="placeholder-sub">Browse, filter, and categorize all your transactions</span>
+                        </div>
+                    </div>
+                    <div class="showcase-panel" id="panel-reports">
+                        <img src="screenshots/reports.png" alt="SpeedMag Reports — Profit and Loss statement with monthly breakdown and charts" loading="lazy">
+                        <div class="screenshot-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Reports</span>
+                            <span class="placeholder-sub">P&amp;L, Balance Sheet, Cash Flow, and Tax Summary</span>
+                        </div>
+                    </div>
+                    <div class="showcase-panel" id="panel-import">
+                        <img src="screenshots/import.png" alt="SpeedMag Import — Drag and drop bank statements with automatic parsing and categorization" loading="lazy">
+                        <div class="screenshot-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Import</span>
+                            <span class="placeholder-sub">Drag-and-drop PDF and CSV statement import</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARE / VALUE SECTION ===== -->
+    <section class="speed-section" id="compare">
+        <div class="container">
+            <div class="speed-layout">
+                <div class="speed-content">
+                    <span class="section-badge animate-in">Compare</span>
+                    <h2 class="section-title animate-in">Same power.<br><span class="gradient-text">A fraction of the price.</span></h2>
+                    <p class="section-subtitle animate-in">Other bookkeeping tools charge you monthly &mdash; forever. SpeedMag is a one-time purchase with free updates for life.</p>
+                    <div class="speed-metrics animate-in">
+                        <div class="metric">
+                            <div class="metric-bar">
+                                <div class="metric-fill speedmag" data-width="3"></div>
+                            </div>
+                            <div class="metric-info">
+                                <span class="metric-label">SpeedMag</span>
+                                <span class="metric-value">$4.99 once</span>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-bar">
+                                <div class="metric-fill competitor-a" data-width="55"></div>
+                            </div>
+                            <div class="metric-info">
+                                <span class="metric-label">FreshBooks</span>
+                                <span class="metric-value">$204/yr</span>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-bar">
+                                <div class="metric-fill competitor-b" data-width="95"></div>
+                            </div>
+                            <div class="metric-info">
+                                <span class="metric-label">QuickBooks</span>
+                                <span class="metric-value">$360/yr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="speed-visual animate-in">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                            <span class="terminal-title">SpeedMag</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">&gt;</span>
+                                <span class="terminal-command typing" id="terminal-cmd">Importing NFCU_Jan2025.pdf</span>
+                            </div>
+                            <div class="terminal-line terminal-output" id="terminal-output">
+                                <span class="terminal-success">&#10003;</span> 47 transactions extracted
+                            </div>
+                            <div class="terminal-line terminal-output" id="terminal-output-2">
+                                <span class="terminal-success">&#10003;</span> Auto-categorized: 38 Business, 6 Personal, 3 Transfer
+                            </div>
+                            <div class="terminal-line terminal-output" id="terminal-output-3">
+                                <span class="terminal-success">&#10003;</span> P&amp;L updated &mdash; Net income: <span class="terminal-highlight">+$3,241.87</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">&gt;</span>
+                                <span class="terminal-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-in">Pricing</span>
+                <h2 class="section-title animate-in">Ridiculously affordable.<br><span class="gradient-text">Seriously.</span></h2>
+                <p class="section-subtitle animate-in">No subscriptions. No hidden fees. Pay once. Use forever.</p>
+            </div>
+            <div class="pricing-grid pricing-grid-two">
+                <!-- Free Tier -->
+                <div class="pricing-card animate-in">
+                    <div class="pricing-tier">Free</div>
+                    <div class="pricing-price">
+                        <span class="price-amount">$0</span>
+                        <span class="price-period">forever</span>
+                    </div>
+                    <p class="pricing-desc">Get started and see why people love SpeedMag.</p>
+                    <ul class="pricing-features">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Import bank statements</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Transaction categorization</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Dashboard overview</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1 business profile</li>
+                    </ul>
+                    <a href="#download" class="btn btn-outline btn-full">Get Started</a>
+                </div>
+                <!-- Pro Tier -->
+                <div class="pricing-card featured animate-in">
+                    <div class="pricing-popular">Best Value</div>
+                    <div class="pricing-tier">Pro</div>
+                    <div class="pricing-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount">4</span>
+                        <span class="price-cents">.99</span>
+                        <span class="price-period">one-time</span>
+                    </div>
+                    <p class="pricing-desc">Full power. No limits. Pay once, use forever.</p>
+                    <ul class="pricing-features">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Everything in Free</strong></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> P&amp;L, Balance Sheet, Cash Flow reports</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Tax Summary &amp; Expense Breakdown</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Inventory &amp; COGS tracking</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited business profiles</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> PDF &amp; CSV export</li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong>Free updates forever</strong></li>
+                    </ul>
+                    <a href="#download" class="btn btn-primary btn-full magnetic-btn">Get SpeedMag Pro — $4.99</a>
+                    <p class="pricing-guarantee">30-day money-back guarantee. No questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-in">Testimonials</span>
+                <h2 class="section-title animate-in">Built for people who <span class="gradient-text">hate bookkeeping.</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"I was paying QuickBooks $30/month to do what SpeedMag does for five bucks total. I imported six months of Navy Federal statements in under a minute. The auto-categorization alone is worth it."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TR</div>
+                        <div class="author-info">
+                            <strong>Tony R.</strong>
+                            <span>Freelance Videographer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"I run two LLCs and a side hustle. The multi-profile feature lets me keep completely separate books for each one. The P&amp;L reports look cleaner than what my old accountant gave me."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KM</div>
+                        <div class="author-info">
+                            <strong>Karen M.</strong>
+                            <span>Small Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"No cloud, no login, no subscription. My financial data stays on my machine. I was nervous about that at first, but honestly &mdash; that's exactly how it should be. And the inventory tracking is a bonus I didn't expect."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DW</div>
+                        <div class="author-info">
+                            <strong>Derek W.</strong>
+                            <span>Etsy Seller &amp; Sole Proprietor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-in">FAQ</span>
+                <h2 class="section-title animate-in">Got questions?</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item animate-in">
+                    <summary>
+                        Which banks are supported?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>SpeedMag can import PDF statements from Navy Federal Credit Union and CSV exports from Chase, Bank of America, Capital One, Wells Fargo, and Citi. It also supports a generic CSV format, so virtually any bank that lets you download transactions as CSV will work.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        Is my financial data safe?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Absolutely. SpeedMag stores everything locally on your Mac &mdash; in your standard Application Support folder. Your data is never uploaded anywhere. There are no accounts, no logins, and no servers. If it's on your Mac, it's yours alone.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        What reports can I generate?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Pro users can generate five report types: Profit &amp; Loss statements, Balance Sheets, Cash Flow reports, Expense Breakdowns (with pie charts), and Tax Summaries. All reports can be filtered by year and exported to PDF.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        What does "free updates forever" actually mean?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>It means exactly what it says. Every Pro purchase includes lifetime updates at no additional cost. New bank format support, new report types, performance improvements, and new features &mdash; all delivered automatically. We fund development through new user growth, not recurring charges.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        Can I track inventory?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes! SpeedMag includes full inventory management &mdash; add items with SKUs, track stock levels, set reorder points, and record purchases, sales, and adjustments. Cost of Goods Sold (COGS) automatically flows into your P&amp;L and inventory value appears on your Balance Sheet as an asset.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        Does it work on Windows or Linux?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>SpeedMag is currently a native macOS app (macOS 12+). Windows and Linux versions are on the roadmap &mdash; join our mailing list to be notified when they're available.</p>
+                    </div>
+                </details>
+                <details class="faq-item animate-in">
+                    <summary>
+                        How is this so cheap?
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Because we don't have cloud servers to maintain. SpeedMag runs entirely on your machine &mdash; no infrastructure costs, no per-user overhead. We pass those savings directly to you. Great software doesn't have to be expensive.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOWNLOAD / CTA ===== -->
+    <section class="download" id="download">
+        <div class="download-glow"></div>
+        <div class="container">
+            <div class="download-content">
+                <h2 class="section-title animate-in">Ready to ditch the<br><span class="gradient-text">monthly subscription?</span></h2>
+                <p class="section-subtitle animate-in">Download SpeedMag and take control of your books in minutes, not hours.</p>
+                <div class="platform-cards animate-in">
+                    <!-- macOS -->
+                    <a href="https://updates.speedmag.ai/SpeedMag-1.0.0.dmg" class="platform-card featured-platform magnetic-btn">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M22.5 28c-1.2 1.7-2.5 1.6-3.8 1.1-1.4-.5-2.6-.6-4.1 0-1.8.7-2.8.5-3.9-1.1C5 20.5 5.8 11.5 12 11.1c1.6.1 2.7.9 3.6.9 1.4-.3 2.7-1.1 4.1-.9 1.7.2 3 .9 3.8 2.3-3.5 2.1-2.6 6.8.7 8.1-.6 1.6-1 2.6-1.7 3.5zM16 11c-.2-2.8 2.1-5.2 4.8-5.4.4 3.2-2.8 5.6-4.8 5.4z" fill="currentColor"/>
+                        </svg>
+                        <span class="platform-name">Download for macOS</span>
+                        <span class="platform-detail">macOS 12 Monterey or later</span>
+                    </a>
+                </div>
+                <div class="download-meta animate-in">
+                    <span>v1.0.0</span>
+                    <span class="meta-dot"></span>
+                    <span>Native Mac App</span>
+                    <span class="meta-dot"></span>
+                    <span>No account required</span>
+                </div>
+                <p class="download-coming-soon animate-in">Windows &amp; Linux coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="logo.png" alt="SpeedMag" class="logo-img">
+                        <span class="logo-text">Speed<span class="logo-accent">Mag</span></span>
+                    </a>
+                    <p class="footer-tagline">Bookkeeping for Mac. Without the monthly bill.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="#download">Download</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Getting Started</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About Rader LLC</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rader LLC. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter/X">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L20 4h-2l-5.2 6.3L8 4H4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21.5c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

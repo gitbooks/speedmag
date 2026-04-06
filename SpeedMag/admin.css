@@ -1,0 +1,263 @@
+/* ==========================================
+   SpeedMag — admin.css
+   Admin panel specific styles
+   ========================================== */
+
+/* ----- Admin Nav ----- */
+.admin-nav-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 4px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+}
+
+.admin-user {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.btn-sm {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+}
+
+/* ----- Login Section ----- */
+.admin-login-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nav-height) 24px 0;
+}
+
+.admin-login-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-logo {
+    width: 48px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+.admin-login-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.admin-login-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+}
+
+.admin-login-card .form-group {
+    text-align: left;
+}
+
+.login-error {
+    font-size: 0.8rem;
+    color: #ef4444;
+    margin-bottom: 12px;
+    min-height: 1.2em;
+}
+
+/* ----- Dashboard Toolbar ----- */
+.admin-toolbar-bar {
+    padding: calc(var(--nav-height) + 24px) 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+}
+
+.admin-toolbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-toolbar-inner h2 {
+    font-size: 1.2rem;
+}
+
+.admin-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* ----- Admin Cards ----- */
+.admin-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    cursor: grab;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.admin-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+}
+
+.admin-card.dragging {
+    opacity: 0.5;
+    border-color: var(--accent-cyan);
+    cursor: grabbing;
+}
+
+.admin-card-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.admin-card-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.admin-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.admin-card-author {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.admin-card-votes {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+.admin-card-edit {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-card-edit:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.admin-card-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: var(--radius-pill);
+    background: rgba(16,185,129,0.1);
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* Drop zone highlight */
+.admin-drop-zone {
+    min-height: 60px;
+    transition: background 0.2s;
+    border-radius: var(--radius-sm);
+}
+
+.admin-drop-zone.drag-over {
+    background: rgba(16,185,129,0.04);
+    outline: 2px dashed rgba(16,185,129,0.3);
+    outline-offset: -2px;
+}
+
+/* ----- Edit Modal Extras ----- */
+.edit-readonly {
+    font-size: 0.9rem;
+    color: var(--text);
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.edit-desc-box {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.admin-select {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238a9e96' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.admin-select:focus {
+    border-color: var(--accent-cyan);
+}
+
+.btn-danger {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #ef4444;
+}
+
+.btn-danger:hover {
+    background: rgba(239,68,68,0.2);
+}
+
+.form-row-between {
+    justify-content: space-between;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+    .admin-toolbar-inner {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .admin-login-card {
+        padding: 28px 24px;
+    }
+}

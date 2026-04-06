@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F2F2F7;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* macOS traffic light area */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Sidebar styles */
+.sidebar-item {
+  @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none;
+  color: rgba(255,255,255,0.65);
+}
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+}
+.sidebar-item.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-100;
+}
+
+/* Stat card */
+.stat-card {
+  @apply card p-5;
+}
+
+/* Table styles */
+.data-table th {
+  @apply text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 text-left bg-gray-50 border-b border-gray-100;
+}
+.data-table td {
+  @apply px-4 py-3 text-sm text-gray-700 border-b border-gray-50;
+}
+.data-table tr:hover td {
+  @apply bg-blue-50/40;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+}
+.badge-business { @apply bg-blue-100 text-blue-700; }
+.badge-personal { @apply bg-purple-100 text-purple-700; }
+.badge-transfer { @apply bg-amber-100 text-amber-700; }
+.badge-uncategorized { @apply bg-gray-100 text-gray-600; }
+
+/* Amount colors */
+.amount-deposit { @apply text-emerald-600 font-medium; }
+.amount-withdrawal { @apply text-red-500 font-medium; }
+
+/* Animate in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.2s ease-out;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  border: 2px solid rgba(0,122,255,0.2);
+  border-top-color: #007AFF;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}

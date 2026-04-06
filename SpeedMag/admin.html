@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — SpeedMag Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="roadmap.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+    <!-- ===== ADMIN NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="SpeedMag" class="logo-img">
+                <span class="logo-text">Speed<span class="logo-accent">Mag</span></span>
+            </a>
+            <div class="admin-nav-label">Admin Panel</div>
+            <div class="nav-actions" id="admin-actions" style="display:none;">
+                <span class="admin-user" id="admin-username"></span>
+                <button class="btn btn-ghost btn-sm" id="logout-btn">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== LOGIN GATE ===== -->
+    <section class="admin-login-section" id="login-section">
+        <div class="admin-login-card">
+            <img src="logo.png" alt="SpeedMag" class="login-logo">
+            <h2>Admin Login</h2>
+            <p>Sign in to manage the roadmap.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-user">Username</label>
+                    <input type="text" id="login-user" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-pass">Password</label>
+                    <input type="password" id="login-pass" autocomplete="current-password" required>
+                </div>
+                <div class="login-error" id="login-error"></div>
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== ADMIN DASHBOARD ===== -->
+    <section class="admin-dashboard" id="dashboard-section" style="display:none;">
+        <div class="admin-toolbar-bar">
+            <div class="container admin-toolbar-inner">
+                <h2>Manage Ideas</h2>
+                <div class="admin-stats">
+                    <span id="stat-total">0 ideas</span>
+                    <span class="meta-dot"></span>
+                    <span id="stat-new">0 new</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="roadmap-board-container">
+            <div class="roadmap-board" id="admin-board">
+                <!-- Submitted -->
+                <div class="roadmap-column" data-status="submitted">
+                    <div class="column-header">
+                        <span class="column-dot submitted"></span>
+                        <h3>Submitted</h3>
+                        <span class="column-count" id="admin-count-submitted">0</span>
+                    </div>
+                    <div class="column-cards admin-drop-zone" id="admin-col-submitted" data-status="submitted"></div>
+                </div>
+                <!-- Under Review -->
+                <div class="roadmap-column" data-status="under_review">
+                    <div class="column-header">
+                        <span class="column-dot under-review"></span>
+                        <h3>Under Review</h3>
+                        <span class="column-count" id="admin-count-under_review">0</span>
+                    </div>
+                    <div class="column-cards admin-drop-zone" id="admin-col-under_review" data-status="under_review"></div>
+                </div>
+                <!-- In Progress -->
+                <div class="roadmap-column" data-status="in_progress">
+                    <div class="column-header">
+                        <span class="column-dot in-progress"></span>
+                        <h3>In Progress</h3>
+                        <span class="column-count" id="admin-count-in_progress">0</span>
+                    </div>
+                    <div class="column-cards admin-drop-zone" id="admin-col-in_progress" data-status="in_progress"></div>
+                </div>
+                <!-- Shipped -->
+                <div class="roadmap-column" data-status="shipped">
+                    <div class="column-header">
+                        <span class="column-dot shipped"></span>
+                        <h3>Shipped</h3>
+                        <span class="column-count" id="admin-count-shipped">0</span>
+                    </div>
+                    <div class="column-cards admin-drop-zone" id="admin-col-shipped" data-status="shipped"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDIT MODAL ===== -->
+    <div class="modal-overlay" id="edit-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Edit Idea</h2>
+                <button class="modal-close" id="close-edit-modal" aria-label="Close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 5l10 10m0-10L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label>Title</label>
+                    <div class="edit-readonly" id="edit-title"></div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <div class="edit-readonly edit-desc-box" id="edit-desc"></div>
+                </div>
+                <div class="form-group">
+                    <label for="edit-status">Status</label>
+                    <select id="edit-status" class="admin-select">
+                        <option value="submitted">Submitted</option>
+                        <option value="under_review">Under Review</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="shipped">Shipped</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-response">Your Response <span class="optional">(public)</span></label>
+                    <textarea id="edit-response" rows="3" placeholder="Write a public response to this idea..."></textarea>
+                </div>
+                <div class="form-group" id="changelog-group" style="display:none;">
+                    <label for="edit-changelog">Changelog URL</label>
+                    <input type="url" id="edit-changelog" placeholder="https://speedmag.ai/changelog#feature">
+                </div>
+                <div class="form-row form-row-between">
+                    <button type="button" class="btn btn-danger btn-sm" id="delete-idea-btn">Delete</button>
+                    <div class="form-row">
+                        <button type="button" class="btn btn-ghost" id="cancel-edit">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
