@@ -1,0 +1,12 @@
+{
+  "name": "speedmag-website",
+  "version": "1.0.0",
+  "description": "SpeedMag marketing site + roadmap API",
+  "scripts": {
+    "build": "cd server && npm install",
+    "start": "cd server && node src/index.js"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
