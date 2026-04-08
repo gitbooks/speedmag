@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation — SpeedMag</title>
+    <meta name="description" content="Learn how to use SpeedMag — import bank statements, categorize transactions, generate reports, track inventory, and manage multiple businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="docs.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="SpeedMag" class="logo-img">
+                <span class="logo-text">Speed<span class="logo-accent">Mag</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://speedmag.lemonsqueezy.com/checkout/buy/eef15f14-986b-4fa4-9391-1871cdb6a643?embed=1" class="btn btn-nav magnetic-btn lemonsqueezy-button">Get Started</a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="docs-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="docs-sidebar" id="docsSidebar">
+            <div class="docs-sidebar__header">
+                <h3>Documentation</h3>
+                <button class="docs-sidebar__close" id="docsSidebarClose" aria-label="Close">&times;</button>
+            </div>
+            <nav class="docs-nav">
+                <a href="#getting-started" class="docs-nav__link active">Getting Started</a>
+                <a href="#license" class="docs-nav__link">License Key</a>
+                <a href="#profiles" class="docs-nav__link">Business Profiles</a>
+                <a href="#importing" class="docs-nav__link">Importing Statements</a>
+                <a href="#supported-banks" class="docs-nav__link">Supported Banks</a>
+                <a href="#categorizing" class="docs-nav__link">Categorizing Transactions</a>
+                <a href="#dashboard" class="docs-nav__link">Dashboard</a>
+                <a href="#reports" class="docs-nav__link">Reports</a>
+                <a href="#balance-sheet" class="docs-nav__link">Balance Sheet</a>
+                <a href="#inventory" class="docs-nav__link">Inventory Tracking</a>
+                <a href="#exporting" class="docs-nav__link">Exporting Data</a>
+                <a href="#settings" class="docs-nav__link">Settings</a>
+                <a href="#data-storage" class="docs-nav__link">Data &amp; Privacy</a>
+            </nav>
+        </aside>
+
+        <!-- Mobile sidebar toggle -->
+        <button class="docs-menu-toggle" id="docsMenuToggle" aria-label="Toggle docs menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Docs Menu
+        </button>
+
+        <!-- Main Content -->
+        <main class="docs-content">
+            <div class="docs-header">
+                <h1>SpeedMag Documentation</h1>
+                <p>Everything you need to know to manage your books with SpeedMag.</p>
+            </div>
+
+            <!-- Getting Started -->
+            <section id="getting-started" class="docs-section">
+                <h2>Getting Started</h2>
+                <ol class="docs-steps">
+                    <li>
+                        <strong>Subscribe</strong> &mdash; Choose the $5/month plan at <a href="index.html#pricing">speedmag.ai</a>. You'll receive a license key by email.
+                    </li>
+                    <li>
+                        <strong>Download</strong> &mdash; Download the macOS app from the <a href="index.html#download">download section</a>. Open the .dmg and drag SpeedMag to your Applications folder.
+                    </li>
+                    <li>
+                        <strong>Activate</strong> &mdash; Launch SpeedMag and paste your license key when prompted. You're in.
+                    </li>
+                    <li>
+                        <strong>Create a profile</strong> &mdash; Name your business and pick a color. You can add more profiles later.
+                    </li>
+                    <li>
+                        <strong>Import statements</strong> &mdash; Drag and drop bank PDFs or CSVs into the Import tab. SpeedMag parses and auto-categorizes your transactions.
+                    </li>
+                    <li>
+                        <strong>Review &amp; categorize</strong> &mdash; Check the Transactions tab. SpeedMag auto-categorizes most transactions, but review anything marked "Uncategorized."
+                    </li>
+                    <li>
+                        <strong>Generate reports</strong> &mdash; Head to Reports to see your P&amp;L, Balance Sheet, Cash Flow, and Tax Summary.
+                    </li>
+                </ol>
+            </section>
+
+            <!-- License Key -->
+            <section id="license" class="docs-section">
+                <h2>License Key</h2>
+                <p>After subscribing, you'll receive a license key by email. When you first open SpeedMag, you'll see an activation screen.</p>
+                <div class="docs-callout">
+                    <strong>Paste your license key</strong> and click <em>Activate License</em>. The app validates your key online and unlocks immediately.
+                </div>
+                <h3>How validation works</h3>
+                <ul>
+                    <li>SpeedMag re-validates your license every <strong>3 days</strong> in the background.</li>
+                    <li>If you're offline, you have a <strong>7-day grace period</strong> before the app asks you to reconnect.</li>
+                    <li>If your subscription expires, you'll see a renewal prompt with a link to resubscribe.</li>
+                </ul>
+            </section>
+
+            <!-- Business Profiles -->
+            <section id="profiles" class="docs-section">
+                <h2>Business Profiles</h2>
+                <p>SpeedMag supports <strong>unlimited business profiles</strong>. Each profile has completely separate statements, transactions, categories, inventory, and reports.</p>
+                <h3>Creating a profile</h3>
+                <p>On first launch, you'll be prompted to create a profile. Enter your business name and choose a color. Click <em>Create Profile</em>.</p>
+                <h3>Switching profiles</h3>
+                <p>Click the <strong>profile name</strong> in the top of the sidebar. A dropdown appears showing all your businesses. Click one to switch &mdash; all data updates instantly.</p>
+                <h3>Managing profiles</h3>
+                <p>Click <em>Manage businesses...</em> at the bottom of the profile dropdown to open the Profile Manager. From here you can:</p>
+                <ul>
+                    <li><strong>Edit</strong> &mdash; Change a profile's name or color.</li>
+                    <li><strong>Delete</strong> &mdash; Permanently remove a profile and all its data. Requires confirmation.</li>
+                    <li><strong>Create</strong> &mdash; Add another business profile.</li>
+                </ul>
+            </section>
+
+            <!-- Importing Statements -->
+            <section id="importing" class="docs-section">
+                <h2>Importing Statements</h2>
+                <p>Navigate to the <strong>Import</strong> tab in the sidebar. You can import bank statements in two ways:</p>
+                <ul>
+                    <li><strong>Drag and drop</strong> &mdash; Drag one or more PDF or CSV files directly onto the drop zone.</li>
+                    <li><strong>File picker</strong> &mdash; Click the drop zone to open a file dialog.</li>
+                </ul>
+                <p>SpeedMag accepts <code>.pdf</code> and <code>.csv</code> files. You can import multiple files at once.</p>
+                <h3>What happens during import</h3>
+                <ol>
+                    <li>SpeedMag detects the bank format automatically.</li>
+                    <li>Transactions are extracted from the file.</li>
+                    <li>Each transaction is auto-categorized using keyword matching (Business, Personal, Transfer, or Uncategorized).</li>
+                    <li>Results are shown per file &mdash; success count, format detected, or any errors.</li>
+                </ol>
+                <div class="docs-callout docs-callout--warning">
+                    <strong>Duplicate detection:</strong> If you try to import a file with the same filename as one already imported, it will be skipped. This prevents duplicate transactions.
+                </div>
+            </section>
+
+            <!-- Supported Banks -->
+            <section id="supported-banks" class="docs-section">
+                <h2>Supported Banks</h2>
+                <h3>PDF import</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Bank</th><th>Format</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Navy Federal Credit Union</td><td>PDF statement (STMSSCM format)</td></tr>
+                    </tbody>
+                </table>
+                <h3>CSV import</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Bank</th><th>How to export from your bank</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Chase</td><td>Account Activity &rarr; Download &rarr; CSV</td></tr>
+                        <tr><td>Bank of America</td><td>Statements &amp; Documents &rarr; Download Transactions &rarr; CSV</td></tr>
+                        <tr><td>Capital One</td><td>Account Details &rarr; Download Transactions &rarr; CSV</td></tr>
+                        <tr><td>Wells Fargo</td><td>Account Summary &rarr; Download Account Activity &rarr; Comma Delimited</td></tr>
+                        <tr><td>Citi</td><td>View Transactions &rarr; Download &rarr; CSV</td></tr>
+                        <tr><td>Any other bank</td><td>Export transactions as CSV with columns for Date, Description, and Amount</td></tr>
+                    </tbody>
+                </table>
+                <p>SpeedMag auto-detects the format by inspecting column headers. If your bank isn't listed, the generic CSV parser handles any file with standard date, description, and amount columns.</p>
+            </section>
+
+            <!-- Categorizing Transactions -->
+            <section id="categorizing" class="docs-section">
+                <h2>Categorizing Transactions</h2>
+                <p>Every transaction gets one of four top-level categories:</p>
+                <div class="docs-category-grid">
+                    <div class="docs-category-card">
+                        <span class="docs-cat-dot" style="background:#10B981"></span>
+                        <div>
+                            <strong>Business</strong>
+                            <p>Tax-deductible business income or expense. Requires a sub-category (e.g., Advertising, Software, Equipment).</p>
+                        </div>
+                    </div>
+                    <div class="docs-category-card">
+                        <span class="docs-cat-dot" style="background:#6366F1"></span>
+                        <div>
+                            <strong>Personal</strong>
+                            <p>Non-business transactions. Excluded from P&amp;L and tax reports.</p>
+                        </div>
+                    </div>
+                    <div class="docs-category-card">
+                        <span class="docs-cat-dot" style="background:#F59E0B"></span>
+                        <div>
+                            <strong>Transfer</strong>
+                            <p>Internal bank transfers. Excluded from all calculations to avoid double-counting.</p>
+                        </div>
+                    </div>
+                    <div class="docs-category-card">
+                        <span class="docs-cat-dot" style="background:#9CA3AF"></span>
+                        <div>
+                            <strong>Uncategorized</strong>
+                            <p>Needs your review. Won't appear in reports until categorized.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Single transaction</h3>
+                <p>Click any transaction row to open the categorization modal. Choose a category, select a business sub-category if applicable, and click <em>Save</em>.</p>
+
+                <h3>Save &amp; Next</h3>
+                <p>When you have uncategorized transactions, a <em>Save &amp; Next</em> button appears in the modal. Click it to save and immediately jump to the next uncategorized transaction &mdash; great for rapid categorization.</p>
+
+                <h3>Similar transactions</h3>
+                <p>When categorizing, check <em>Apply to similar transactions</em> to apply the same category to all transactions with matching descriptions. A preview panel shows which transactions will be affected &mdash; uncheck any you want to skip.</p>
+
+                <h3>Bulk categorization</h3>
+                <p>Select multiple transactions using the checkboxes, then use the bulk categorization bar that appears at the top to apply a single category to all selected transactions at once.</p>
+
+                <h3>Business sub-categories</h3>
+                <p>When you categorize a transaction as "Business," you must choose a sub-category. SpeedMag includes 16 built-in categories:</p>
+                <div class="docs-columns">
+                    <ul>
+                        <li>Business Income</li>
+                        <li>Advertising &amp; Marketing</li>
+                        <li>Equipment</li>
+                        <li>Inventory Purchase</li>
+                        <li>Inventory / COGS</li>
+                        <li>Payment Processing</li>
+                        <li>Software &amp; Subscriptions</li>
+                        <li>Banking &amp; Fees</li>
+                    </ul>
+                    <ul>
+                        <li>Bank Dividend</li>
+                        <li>Professional Services</li>
+                        <li>Utilities</li>
+                        <li>Office &amp; Supplies</li>
+                        <li>Travel &amp; Transportation</li>
+                        <li>Meals &amp; Entertainment</li>
+                        <li>Payroll &amp; Contractors</li>
+                        <li>Other Business</li>
+                    </ul>
+                </div>
+                <p>You can add custom categories in <a href="#settings">Settings</a>.</p>
+            </section>
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="docs-section">
+                <h2>Dashboard</h2>
+                <p>The Dashboard gives you a real-time overview of your finances for the selected tax year.</p>
+                <h3>Stat cards</h3>
+                <ul>
+                    <li><strong>Total Income</strong> &mdash; All deposits (excludes transfers)</li>
+                    <li><strong>Total Expenses</strong> &mdash; All withdrawals (excludes transfers)</li>
+                    <li><strong>Net Income</strong> &mdash; Income minus expenses</li>
+                    <li><strong>Business Expenses</strong> &mdash; Only transactions categorized as Business</li>
+                </ul>
+                <h3>Charts</h3>
+                <ul>
+                    <li><strong>Monthly Cash Flow</strong> &mdash; Bar chart comparing income vs. expenses by month</li>
+                    <li><strong>Net Income Trend</strong> &mdash; Area chart showing month-by-month net income progression</li>
+                </ul>
+                <h3>Recent transactions</h3>
+                <p>Shows your last 8 transactions. If you have uncategorized transactions, an alert badge shows the count &mdash; click it to jump to the Transactions view.</p>
+            </section>
+
+            <!-- Reports -->
+            <section id="reports" class="docs-section">
+                <h2>Reports</h2>
+                <p>SpeedMag generates five report types. All reports are filtered by the tax year selected in the sidebar and can be exported to PDF.</p>
+
+                <h3>Profit &amp; Loss (P&amp;L)</h3>
+                <p>Shows your business revenue, cost of goods sold (COGS), gross profit, operating expenses by category, and net income. Includes a monthly breakdown table with income, expenses, net income, and profit margin.</p>
+
+                <h3>Balance Sheet</h3>
+                <p>See <a href="#balance-sheet">Balance Sheet</a> section below for details.</p>
+
+                <h3>Cash Flow</h3>
+                <p>Monthly visualization of money in vs. money out, including business income, business expenses, and owner activity (contributions and draws).</p>
+
+                <h3>Expense Breakdown</h3>
+                <p>Pie chart and table showing your business expenses by sub-category. Sorted by amount, with percentage of total expenses.</p>
+
+                <h3>Tax Summary</h3>
+                <p>Lists your total business income and all deductible expenses organized by sub-category. Shows net taxable income at the bottom. Useful for tax preparation.</p>
+
+                <h3>Exporting reports to PDF</h3>
+                <p>Click the <em>Export PDF</em> button on any report tab. The PDF includes your business name, logo, professionally formatted tables, and a confidentiality footer.</p>
+            </section>
+
+            <!-- Balance Sheet -->
+            <section id="balance-sheet" class="docs-section">
+                <h2>Balance Sheet</h2>
+                <p>The Balance Sheet combines auto-calculated values with manually entered entries.</p>
+
+                <h3>Auto-calculated values</h3>
+                <ul>
+                    <li><strong>Cash &amp; Bank Accounts</strong> &mdash; Calculated from your imported statements, showing balances by account number.</li>
+                    <li><strong>Inventory Value</strong> &mdash; Pulled from the Inventory module (units on hand &times; average cost).</li>
+                    <li><strong>Net Income</strong> &mdash; From your business transactions for the selected year.</li>
+                    <li><strong>Owner Contributions &amp; Draws</strong> &mdash; Calculated from personal deposits and withdrawals.</li>
+                </ul>
+
+                <h3>Manual entries</h3>
+                <p>You can add custom entries for:</p>
+                <ul>
+                    <li><strong>Current Assets</strong> &mdash; e.g., Accounts Receivable</li>
+                    <li><strong>Fixed Assets</strong> &mdash; e.g., Vehicles, Equipment</li>
+                    <li><strong>Current Liabilities</strong> &mdash; e.g., Credit Card Balance</li>
+                    <li><strong>Long-Term Liabilities</strong> &mdash; e.g., Business Loan</li>
+                </ul>
+                <p>Click the <strong>+</strong> button next to any section to add an entry. Click the pencil icon to edit or the trash icon to delete.</p>
+
+                <h3>Balance check</h3>
+                <p>The bottom of the Balance Sheet shows whether your books balance. A green "Balanced" indicator appears when Total Assets equals Total Liabilities + Owner's Equity.</p>
+            </section>
+
+            <!-- Inventory -->
+            <section id="inventory" class="docs-section">
+                <h2>Inventory Tracking</h2>
+                <p>SpeedMag includes full inventory management with automatic cost tracking and COGS integration.</p>
+
+                <h3>Adding items</h3>
+                <p>Click <em>Add Item</em> in the Inventory tab. Enter the item name, optional SKU, sale price, and reorder point (the quantity at which you'll see a low-stock warning).</p>
+
+                <h3>Recording transactions</h3>
+                <p>Hover over any item row to see action buttons:</p>
+                <ul>
+                    <li><strong>Purchase</strong> &mdash; Record stock received. Enter quantity and cost per unit.</li>
+                    <li><strong>Sale</strong> &mdash; Record stock sold. Quantity and average cost auto-fill.</li>
+                    <li><strong>Adjust</strong> &mdash; Set an exact count (for corrections or physical counts).</li>
+                </ul>
+
+                <h3>Cost tracking</h3>
+                <p>SpeedMag uses <strong>weighted average cost</strong>. When you make purchases at different prices, the average cost updates automatically. This average cost is used to calculate COGS when items are sold.</p>
+
+                <h3>Reports integration</h3>
+                <ul>
+                    <li><strong>P&amp;L</strong> &mdash; COGS from inventory sales appears as a line item, reducing gross profit.</li>
+                    <li><strong>Balance Sheet</strong> &mdash; Total inventory value (units on hand &times; average cost) appears as a current asset.</li>
+                </ul>
+
+                <h3>Low stock alerts</h3>
+                <p>A yellow alert banner appears when any items are at or below their reorder point.</p>
+            </section>
+
+            <!-- Exporting -->
+            <section id="exporting" class="docs-section">
+                <h2>Exporting Data</h2>
+
+                <h3>Export transactions to CSV</h3>
+                <p>In the Transactions tab, click the <em>Export CSV</em> button. A file dialog lets you choose where to save. The CSV includes: Date, Description, Amount, Type, Category, Business Category, and Account.</p>
+
+                <h3>Export reports to PDF</h3>
+                <p>On any report tab (P&amp;L, Balance Sheet, etc.), click <em>Export PDF</em>. The PDF is professionally formatted with your business name and logo.</p>
+            </section>
+
+            <!-- Settings -->
+            <section id="settings" class="docs-section">
+                <h2>Settings</h2>
+
+                <h3>Categorization progress</h3>
+                <p>A visual breakdown showing how many of your transactions are categorized as Business, Personal, Transfer, or Uncategorized, with a progress bar.</p>
+
+                <h3>Imported statements</h3>
+                <p>Lists every statement you've imported, with the filename, transaction count, and import date. Click the delete button to remove a statement and all its transactions.</p>
+
+                <h3>Custom business categories</h3>
+                <p>Add your own sub-categories beyond the 16 built-in ones. Type a name (e.g., "Insurance" or "Tools &amp; Hardware") and click <em>Add</em>. Custom categories appear in the categorization dropdown alongside the defaults.</p>
+            </section>
+
+            <!-- Data & Privacy -->
+            <section id="data-storage" class="docs-section">
+                <h2>Data &amp; Privacy</h2>
+                <div class="docs-callout">
+                    <strong>Your data never leaves your Mac.</strong> SpeedMag stores everything locally. There are no cloud servers, no accounts, and no data collection.
+                </div>
+                <h3>Where is my data stored?</h3>
+                <p>All data is saved in your Application Support folder:</p>
+                <pre><code>~/Library/Application Support/speedmag/</code></pre>
+                <p>Each business profile has its own data file. Your license key is stored separately.</p>
+
+                <h3>Backups</h3>
+                <p>Since your data is local, we recommend backing up your Mac regularly with Time Machine or your preferred backup solution. The data files are standard JSON &mdash; small and easy to back up.</p>
+
+                <h3>Switching computers</h3>
+                <p>Copy the <code>~/Library/Application Support/speedmag/</code> folder to your new Mac. Your license key, profiles, and all data will transfer.</p>
+            </section>
+
+            <div class="docs-footer-cta">
+                <p>Still have questions? <a href="mailto:support@speedmag.ai">support@speedmag.ai</a></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="logo.png" alt="SpeedMag" class="logo-img">
+                        <span class="logo-text">Speed<span class="logo-accent">Mag</span></span>
+                    </a>
+                    <p class="footer-tagline">Modern bookkeeping platform for Mac. $5/month.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="index.html#download">Download</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="docs.html">Documentation</a>
+                    <a href="docs.html#getting-started">Getting Started</a>
+                    <a href="#">Changelog</a>
+                    <a href="mailto:support@speedmag.ai">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About Rader LLC</a>
+                    <a href="mailto:support@speedmag.ai">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rader LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+    <script src="script.js"></script>
+    <script>
+    // Docs sidebar active link tracking
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.docs-section');
+        const navLinks = document.querySelectorAll('.docs-nav__link');
+        const sidebar = document.getElementById('docsSidebar');
+        const toggle = document.getElementById('docsMenuToggle');
+        const close = document.getElementById('docsSidebarClose');
+
+        // Scroll spy
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const link = document.querySelector(`.docs-nav__link[href="#${entry.target.id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+
+        // Mobile sidebar toggle
+        if (toggle && sidebar && close) {
+            toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+            close.addEventListener('click', () => sidebar.classList.remove('open'));
+            navLinks.forEach(l => l.addEventListener('click', () => sidebar.classList.remove('open')));
+        }
+    });
+    </script>
+</body>
+</html>
